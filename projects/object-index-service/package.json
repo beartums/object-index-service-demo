@@ -1,8 +1,19 @@
 {
-  "name": "object-index-service",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
-  }
+    "name": "object-index-service",
+    "version": "0.0.1",
+    "homepage": "https://github.com/beartums/object-index-service-demo",
+    "description": "Easy indexing and retrieval of objects by property value",
+    "keywords": ["object", "index", "service", "indexing", "objects", "ngx", "Angular", " Angular 2+", "Angular6"],
+    "bugs": {
+        "url": "https://github.com/beartums/object-index-service-demo/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/beartums/object-index-service-demo.git"
+    },
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+    }
 }
