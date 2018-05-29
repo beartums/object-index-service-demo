@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { ObjectIndexService } from './object-index.service';
 
-import { IndexDefinition } from './object-index-service.models';
+import { IndexDefinition } from './index-definition.class';
 
 // HACK ALERT:
 //

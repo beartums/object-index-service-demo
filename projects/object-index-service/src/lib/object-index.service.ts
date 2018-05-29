@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 
-//import { Catalog } from './catalog.class';
-import { IndexDefinition, Catalog } from './object-index-service.models';
+import { Catalog } from './catalog.class';
+import { IndexDefinition } from './index-definition.class';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +46,7 @@ export class ObjectIndexService {
 	 * @param   indexDef   Definition of the index to be created
 	 * @return             this service for chaining
 	 */
-	addIndex(entityName: string, indexDef: IndexDefinition): any {
+	addIndex(entityName: string, indexDef: IndexDefinition): ObjectIndexService {
 		this.getCatalog(entityName).addIndex(indexDef);
 		return this;
 	}
@@ -57,7 +57,7 @@ export class ObjectIndexService {
 	 * @param   indexName  Name of Index to remove
 	 * @return             this service, for chaining
 	 */
-	removeIndex(entityName: string, indexName: string): any {
+	removeIndex(entityName: string, indexName: string): ObjectIndexService {
 		this.getCatalog(entityName).removeIndex(indexName);
 		return this;
 	}
@@ -83,7 +83,7 @@ export class ObjectIndexService {
 	 * @param  entity     entity to add
 	 * @return  			added entity
 	 */
-	add(entityName: string, entity: any): any {
+	add<T>(entityName: string, entity: T): T {
 		return this.getCatalog(entityName).add(entity);
 	}
 
@@ -93,7 +93,7 @@ export class ObjectIndexService {
 	 * @param  entities to add
 	 * @return  added entities
 	 */
-	addAll(entityName: string, entities: any[]): any[] {
+	addAll<T>(entityName: string, entities: Array<T>): Array<T> {
 		return this.getCatalog(entityName).addAll(entities);
 	}
 
@@ -102,15 +102,22 @@ export class ObjectIndexService {
 	 * and an object containing the necessary keysO
 	 * @param   entityName Name of the entitiy to Find
 	 * @param   indexName  Name of the index to used
-	 * @param      keysObject An object that has the right key-value pairs for the
+	 * @param    keysObject An object that has the right key-value pairs for the
 	 *                             index
-	 * @return                The entity found
+	 * @return   The entity found
 	 */
-	get(entityName: string, indexName?: string, keysObject?: any): any {
+	get<T>(entityName: string, indexName?: string, keysObject?: T): T | Array<T> {
 		if (!indexName && !keysObject) return this.getAll(entityName);
 		return this.getCatalog(entityName).get(indexName, keysObject);
 	}
 
+  /**
+   * For a specified index, return an array of objects with the unique key values as properties
+   * @param entityName Name of the entity Catalog
+   * @param indexName Name of the index for which to retrieve keys
+   * @return Array of objects with the property names matching the indexed properties
+   *            from the index and the values matching one of unique keys for the index
+   */
 	getKeys(entityName: string, indexName: string): any[] {
 		return this.getCatalog(entityName).getKeys(indexName);
 	}
@@ -119,7 +126,7 @@ export class ObjectIndexService {
  * @param   entityName Name of the entity to get
  * @return              Collection of entities
  */
-	getAll(entityName: string): any[] {
+	getAll<T>(entityName: string): Array<T> {
 		return this.getCatalog(entityName).getAll();
 	}
 	/**
@@ -128,7 +135,7 @@ export class ObjectIndexService {
 	 * @param      entity     Entity to remove
 	 * @return                entity removed
 	 */
-	remove(entityName: string, entity: any): any {
+	remove<T>(entityName: string, entity: T): T {
 		return this.getCatalog(entityName).remove(entity);
 	}
 
@@ -139,7 +146,7 @@ export class ObjectIndexService {
 	 * @param      updateObject Object with the updated properties
 	 * @return               Entity after updating
 	 */
-	update(entityName: string, entity: any, updateObject: any): any {
+	update<T>(entityName: string, entity: T, updateObject: any): T {
 		return this.getCatalog(entityName).update(entity, updateObject);
 	}
 }

@@ -1,8 +1,8 @@
 {
     "name": "object-index-service",
-    "version": "0.0.1",
+    "version": "0.0.4",
     "homepage": "https://github.com/beartums/object-index-service-demo",
-    "description": "Easy indexing and retrieval of objects by property value",
+    "description": "Easy indexing and retrieval of objects by property (or properties)",
     "keywords": ["object", "index", "service", "indexing", "objects", "ngx", "Angular", " Angular 2+", "Angular6"],
     "bugs": {
         "url": "https://github.com/beartums/object-index-service-demo/issues"

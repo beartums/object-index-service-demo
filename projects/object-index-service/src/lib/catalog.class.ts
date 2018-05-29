@@ -24,7 +24,7 @@ export class Catalog {
 	 * @param      delimiter Delimiter for the keys that will create the index
 	 * @return       this
 	 */
-	constructor(entityName: string, delimiter: string = '|~|', catalogs?: any ) {
+	constructor(entityName: string, delimiter: string = '|~|', catalogs?: Catalog[] ) {
 		this.entityName = entityName;
 		this.delimiter = delimiter;
 		this.catalogs = catalogs;
@@ -36,7 +36,7 @@ export class Catalog {
 	 * @param  	force	Force the rebuilding of this index if it already exists
 	 * @return           the current catalog for chaining
 	 */
-	addIndex(indexDef: IndexDefinition, force: boolean = false): any {
+	addIndex(indexDef: IndexDefinition, force: boolean = false): Catalog {
 		// TODO: What if it exists (same fields, different order)?
 		// TODO: What if it exists (same fields, same order)?
 		if (this.indexDefinitions[indexDef.indexName] && !force)
@@ -51,7 +51,7 @@ export class Catalog {
 	 * @param   indexName Name of the index to removeIndex
 	 * @return            removed index
 	 */
-	removeIndex(indexName: string): any {
+	removeIndex(indexName: string): Catalog {
 		// TODO: if index does not exist?
 		let index = this.indices[indexName]
 		if (!index) throw new Error((`Index named "${indexName}" does not exist for (cannot be removed from) ${this.entityName}`));
@@ -69,7 +69,7 @@ export class Catalog {
 	 * @param   indexPropertiesObject Object with property names/values for lookup
 	 * @return             entity (array of entities) referenced
 	 */
-	get(indexName: string, indexPropertiesObject: any): any {
+	get(indexName: string, indexPropertiesObject: any): any | any[] {
 		if (!indexPropertiesObject) throw `Cannot lookup within index '${indexName}' because there are no defined index properties on the passed key object`
 		let indexDef = this.indexDefinitions[indexName];
 		if (!indexDef) throw `Index '${indexName}' does not exist for catalog '${this.entityName}'`

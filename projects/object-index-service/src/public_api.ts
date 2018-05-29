@@ -3,5 +3,6 @@
  */
 
 export * from './lib/object-index.service';
-export * from './lib/object-index-service.models';
+export * from './lib/index-definition.class';
+export * from './lib/catalog.class';
 
