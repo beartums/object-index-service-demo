@@ -1,10 +1,31 @@
 # ObjectIndexService
 
-  Angular Javascript Service to be used for indexing objects by a property or collection of properties
+  Angular Javascript Service for indexing objects by a property or collection of properties.
+
+  Best deployed in low-infrastructure environments using low-powered mobile devices.
+  We most often use this on tablets to navigate nested entities that we pull from APIs in flat collections, especially if they have to be accessed in multiple
+  ways.
+
+  e.g. the collections: SalesOrders, SalesPerson, BusinessUnit, where SalesOrders
+  has foreign keys to SalesPerson and BusinessUnit.  If we create catalogs for 
+  each collection, we can create indices for SalesOrders by SalesOrderId,
+  SalesPersonId, and BusinessUnitId.  We can also index SalesPerson and BusinessUnit by their IDs.  Then, given a specific SalesOrder, I can retrieve the 
+  BusinessUnit and the SalesPerson without having to loop through the arrays.  And 
+  given a specific SalesPerson, I can retrieve all the orders without looping 
+  through that array.
+
+
 
 ## Installation
 
-  $ npm install object-index-service
+  `> npm install --save object-index-service`
+
+## Structure and Classes
+
+  ObjectIndexService: standard angular service that should be declared in your module and manages Catalogs and keeps them loaded between controllers
+
+  Catalog: This keeps track of a collection of objects that share the same interface
+  (for example, Dogs) and the indices that are built on the shared properties.
 
 ## Usage
 

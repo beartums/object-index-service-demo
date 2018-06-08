@@ -1,6 +1,6 @@
-//import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { IndexDefinition, ObjectIndexService } from "object-index-service";
+
 
 @Component({
   selector: 'oisd-root',
