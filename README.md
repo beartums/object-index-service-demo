@@ -1,6 +1,6 @@
 # ObjectIndexServiceDemo
 
-Demonstration of a Javascript Service library for indexing objects by a property or collection of properties
+Demonstration of a Angular 6 [object-index-service library](./projects/object-index-service/README.md) for indexing objects by a property or collection of properties
 
 ## Installation
 
