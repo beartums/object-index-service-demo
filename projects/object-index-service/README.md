@@ -14,8 +14,6 @@
   given a specific SalesPerson, I can retrieve all the orders without looping 
   through that array.
 
-
-
 ## Installation
 
   `> npm install --save object-index-service`
@@ -29,7 +27,7 @@
   // Add it to the providers array for the module
   @NgModule({
     ...
-    providers: [ObjectIndexService,...]
+    providers: [ObjectIndexService, ...]
     ...
   })
   ```
@@ -38,17 +36,17 @@
 
   ```javascript
   // Import what you need
-  import { ObjectIndexService, Catalog } from "object-indec-service";
+  import { ObjectIndexService, Catalog } from "object-index-service";
   ```
 
 ## Structure and Classes
 
-  ```ObjectIndexService```: standard angular service that should be declared in your module and manages Catalogs and keeps them loaded between controllers
+  `ObjectIndexService`: standard angular service that should be declared in your module and manages Catalogs and keeps them loaded between controllers
 
-  ```Catalog```: This keeps track of a collection of objects that share the same interface
+  `Catalog`: This keeps track of a collection of objects that share the same interface
   (for example, Dogs) and the indices that are built on the shared properties.
 
-  ````IndexDefinition```: Defines the properties used for each index and whether the index is a collection or a single item
+  `IndexDefinition`: Defines the properties used for each index and whether the index is a collection or a single item
 
 ## Usage
 
@@ -117,7 +115,7 @@
   
   // undefined properties in the update object are not changed in the reference object
   updateDog: { isAGoodBoy: false };
-  
+
   objectIndexService.update("Dog", myDog, updateDog);
   // alternately: 
   // dogCat.update(myDog, updateDog);

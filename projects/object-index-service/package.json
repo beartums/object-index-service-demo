@@ -1,6 +1,6 @@
 {
     "name": "object-index-service",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "homepage": "https://github.com/beartums/object-index-service-demo",
     "description": "Easy indexing and retrieval of objects by property (or properties)",
     "keywords": [
