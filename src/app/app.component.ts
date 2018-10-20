@@ -9,8 +9,8 @@ import { IndexDefinition, ObjectIndexService } from "object-index-service";
 
 })
 export class AppComponent {
-  title = 'oisd';
-  dogs = [
+  title: string = 'object-index-service-demo';
+  dogs: any[] = [
     { dogId: 1, name: "Fido", breed: "Africanus", isAGoodBoy: true },
     { dogId: 2, name: "Fido", breed: "Schnauzer", isAGoodBoy: true },
     { dogId: 3, name: "Mr. Snuffles", breed: "Lhasa Apso", isAGoodBoy: true },
@@ -23,13 +23,13 @@ export class AppComponent {
     { dogId: 10, name: "Fido", breed: "Africanus", isAGoodBoy: true },
   ];
 
-  indices = [
+  indices: IndexDefinition[] = [
     new IndexDefinition("byBreed", ["breed"], true),
     new IndexDefinition("byNameAndIsGood", ["name","isAGoodBoy"], true),
     new IndexDefinition("byId", ["dogId"], false ),
   ];
 
-  chosenIndex: IndexDefinition;
+  chosenIndex: IndexDefinition = null;
   props = {};
 
   foundDogs = null;
