@@ -5,15 +5,15 @@
     </h1>
 </div>
 <!--pre *ngIf="indices">{{indices | json}}</pre-->
-<select [(ngModel)]="chosenIndex">
+<select id="indexSelector" [(ngModel)]="chosenIndex">
   <option *ngFor="let ix of indices" [ngValue]="ix">{{ix.indexName}}</option>
 </select>
 <ng-container *ngIf="chosenIndex">
-  <div *ngFor="let prop of chosenIndex.indexedProperties">
+  <div id="properties" *ngFor="let prop of chosenIndex.indexedProperties">
     {{prop}}
     <input [(ngModel)]="props[prop]">
   </div>
 </ng-container>
 <button (click)="getDogs(chosenIndex,props)">C'm'ere Boy</button>
-<pre *ngIf="foundDogs">{{foundDogs | json}}</pre>
-<pre *ngIf="foundDog">{{foundDog | json}}</pre>
+<pre id="foundDogs" *ngIf="foundDogs">{{foundDogs | json}}</pre>
+<pre id="foundDog" *ngIf="foundDog">{{foundDog | json}}</pre>

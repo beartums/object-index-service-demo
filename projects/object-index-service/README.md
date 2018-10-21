@@ -1,6 +1,6 @@
 # ObjectIndexService
 
-  Angular Javascript Service for indexing objects by a property or collection of properties.
+  Angular 6 Javascript Service for indexing objects by a property or collection of properties.
 
   Best deployed in low-infrastructure environments using low-powered mobile devices.
   We most often use this on tablets to navigate nested entities that we pull from APIs in flat collections, especially if they have to be accessed in multiple
